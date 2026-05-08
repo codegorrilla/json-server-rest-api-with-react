@@ -2,13 +2,18 @@ import React, { useState } from "react";
 
 export const PostForm = ({ onPostAdded }) => {
   //1. local state for form inputs
+  const [postId, setPostId] = useState("");
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault(); //Prevents the page from refreshing
 
-    const newPost = { title, author };
+    const newPost = {
+      postId,
+      title,
+      author,
+    };
 
     try {
       //2. The POST request
@@ -23,6 +28,8 @@ export const PostForm = ({ onPostAdded }) => {
       if (response.ok) {
         const data = await response.json();
         onPostAdded(data);
+
+        setPostId("");
         setTitle("");
         setAuthor("");
       }
@@ -34,6 +41,13 @@ export const PostForm = ({ onPostAdded }) => {
   return (
     <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
       <h3>Add a new post</h3>
+      <input
+        type="number"
+        value={postId}
+        placeholder="Post ID"
+        onChange={(e) => setPostId(e.target.value)}
+        required
+      />
       <input
         type="text"
         placeholder="Title"
