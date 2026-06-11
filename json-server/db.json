@@ -1,0 +1,27 @@
+{
+  "posts": [
+    {
+      "title": "Some Ttile",
+      "author": "Sanjib",
+      "id": "zWxZW4JNVwI"
+    },
+    {
+      "title": "Birth of a Nation",
+      "author": "Sanjib",
+      "id": "BTPIru3r0g4"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "description": "first comments",
+      "postId": null
+    },
+    {
+      "id": "2",
+      "description": "second comment",
+      "postId": null
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
